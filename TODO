@@ -1,0 +1,20 @@
+[bugs]
+Encodage utf8 (pas d'html dans le nom affichable)
+Fermeture groupe : creation de deux onglets vide
+
+[features]
+Lien fermable (bouton -)
+Lien go (bouton ->)
+Trier ordre onglets à l'interieur d'un groupe
+Annuler la fermeture d'un groupe/d'un onglet
+Onglet selectionnable par paquet
+Groupe glissable
+
+[design]
+Miniature à la place des liens (a stoquer dans local et pas en ligne)
+DONE : Mettre en valeur le groupe d'onglet actif
+CSS lors du drag&drop
+
+[general]
+Aide
+Icone(ruban,...) sur le store

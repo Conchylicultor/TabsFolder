@@ -1,0 +1,68 @@
+function loadGroup()
+{
+  chrome.storage.sync.get(["nom_actif", "list_groups"], function(items){
+    if(items["nom_actif"])
+    {
+      groupActif.name = items["nom_actif"];
+      $("#group_id_" + groupActif.id.toString()).find(".group_name").val(groupActif.name);
+    }
+    else
+    {
+      console.log("Premier lancement...");
+    }
+    
+    if(items["list_groups"])
+    {
+      var listLoadGroup = items["list_groups"];
+      
+      for(var i=0 ; i < listLoadGroup.length; ++i)
+      {
+	var newGroup = createGroup();
+	newGroup.name = listLoadGroup[i].name;
+	$("#group_id_" + newGroup.id.toString()).find(".group_name").val(newGroup.name);
+	
+	for(var j=0 ; j < listLoadGroup[i].list_tabs.length; ++j)
+	{
+	  // Creation de l'onglet
+	  var nouvel_onglet = new classOnglet();
+	  
+	  nouvel_onglet.id = getNewIdTab();
+	  nouvel_onglet.id_chrome = -1;
+	  nouvel_onglet.url = listLoadGroup[i].list_tabs[j].url;
+	  nouvel_onglet.title = listLoadGroup[i].list_tabs[j].title;
+	  nouvel_onglet.icone = listLoadGroup[i].list_tabs[j].icone;
+	  nouvel_onglet.groupe_onglet = -1;
+
+	  // Ajout de l'onglet (sans ouvrir l'onglet)
+	  addGroupTab(newGroup, nouvel_onglet);
+	}
+      }
+      
+      console.log(items["list_groups"].length);
+      for(var i=0 ; i < items["list_groups"].length; ++i)
+      {
+	console.log(items["list_groups"][i].list_tabs.length);
+      }
+    }
+    else
+    {
+      console.log("Non trouve");
+    }
+  });
+}
+
+function saveGroup()
+{
+  var listSaveGroup = new Array();
+  for(var i=0 ; i < list_groups.length; ++i)
+  {
+    // On les copies tous sauf l'actif
+    if(list_groups[i].id != groupActif.id)
+    {
+      listSaveGroup.push(list_groups[i]);
+    }
+  }
+  chrome.storage.sync.set({"nom_actif":groupActif.name, "list_groups":listSaveGroup}, function(items){
+    
+  });
+}

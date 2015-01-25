@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name" :"TabsFolder",
+  "version" :"0.8.3",
+  "description" :"Group your tabs into groups.",
+  "icons": { "16":  "icon16.png",
+	     "48":  "icon48.png",
+	     "128": "icon128.png" },
+
+  "author": {
+      "name": "Conchilicultor",
+      "email": "conchilicultor@gmail.com" },
+      
+  "permissions": ["tabs", "storage"],
+
+  "background": {
+    "scripts": ["src/event_page.js"],
+    "persistent": false
+  },
+  
+  "browser_action" :{
+      "default_icon" : "img/ba48.png",
+      "default_title": "Organise your tabs"
+  }
+}

@@ -1,0 +1,133 @@
+body
+{
+  background-color:#3876b6;
+  /*background-color:#F98C00;*/
+  background-image:url("img/bg.png");
+  background-repeat:repeat-y;
+  background-attachment:fixed;
+  background-position:center top;
+  
+  margin:0;
+  padding:0;
+}
+
+header
+{
+  background-color:white;
+  
+  margin:0;
+  margin-top:10px;
+  padding:12px;
+  
+  border-bottom:5px solid #d5d5d5;
+}
+
+.group_id
+{
+  display: inline-block;
+  vertical-align:top;
+  
+  border-radius:5px;
+  
+  background-color:white;
+  
+  margin:5px;
+  padding:0px;
+  padding-bottom:5px;
+  
+  width:100%;
+}
+
+.group_actif
+{
+  background-color:#E9E9E9;
+}
+
+.group_head
+{
+  margin-left:0;
+  margin-right:0;
+  margin-top:10px;
+  margin-bottom:10px;
+  
+  padding-left:15px;
+  padding-right:15px;
+  padding-bottom:15px;
+  border-bottom:2px solid #d5d5d5;
+}
+
+#list_groups
+{
+  -webkit-column-count:3;
+  column-count:2;
+  -webkit-column-gap:20px;
+  column-gap:0px;
+  column-fill:balance;
+  
+  padding:20px;
+}
+
+
+.list_onglet
+{
+  max-height:400px;
+  overflow:auto;
+  
+  list-style-type:none;
+  padding:7px;
+}
+
+.list_onglet li
+{
+  clear:right;
+  padding-left:15px;
+  margin-bottom:1px;
+}
+
+.list_onglet li img
+{
+  vertical-align:middle;
+}
+
+.list_onglet li:hover
+{
+  background-color:#929292;
+}
+
+.tabButtons
+{
+  float:right;
+  display:none;
+}
+
+.group_move
+{
+  display:none;
+}
+
+#help
+{
+  float:right;
+  position:relative;
+}
+
+#help_hidden
+{
+  display:none;
+  position:absolute;
+  top:20px;
+  right:0px;
+  width:400px;
+  
+  border:2px solid;
+  border-radius:5px;
+  border-color:#929292;
+  background-color:white;
+  
+  padding:6px;
+}
+
+#help:hover #help_hidden
+{
+  display:block;
+}

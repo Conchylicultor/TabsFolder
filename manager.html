@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TabFolder!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="all" href="page.css" type="text/css" />
+    
+    <script src="src/jquery.js"></script>
+    
+    <script src="src/donnees.js"></script>
+    <script src="src/browser.js"></script>
+    <script src="src/stockage.js"></script>
+    <script src="src/recuperation.js"></script>
+    <script src="src/manipulation.js"></script>
+    <script src="src/drag_and_drop.js"></script>
+    <script src="src/script.js"></script>
+    <script src="src/buttons.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="help">
+	<img src="img/help.png" alt="help" height="20" />
+	<div id="help_hidden">
+	  <p>Some indication to use this extention :</p>
+	  <p>You just have to drag and drop links into groups.<br />
+	  I hope you will enjoy it.</p>
+	  <p>Sorry, I don't have the time to developp this extention anymore but you can use the source code if you want. To contact me:<a href="mailto:conchilicultor@gmail.com">conchilicultor@gmail.com</a></p>
+	</div>
+      </div>
+      <button type="button" id="create_group" >Create a group</button>
+      <p>You can manage your tabs from this page :<span id="nb_onglets"></span></p>
+    </header>
+    <div id="list_groups">
+    </div>
+  </body>
+</html>
