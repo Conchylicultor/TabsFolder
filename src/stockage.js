@@ -99,6 +99,7 @@ function loadGroup()
 	    nouvel_onglet.id_chrome = -1;
 	    nouvel_onglet.url = listLoadGroup[i].list_tabs[j].url;
 	    nouvel_onglet.title = listLoadGroup[i].list_tabs[j].title;
+            nouvel_onglet.pinned = listLoadGroup[i].list_tabs[j].pinned;
 	    nouvel_onglet.icone = listLoadGroup[i].list_tabs[j].icone;
 	    nouvel_onglet.groupe_onglet = -1;
 

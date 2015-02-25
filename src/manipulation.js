@@ -64,6 +64,10 @@ function addGroupTab(group, tab, onFirstLaunch)
     {
       elementOngletListe += tab.url;
     }
+    if(tab.pinned)
+    {
+      elementOngletListe += ' (P)';
+    }
     elementOngletListe += '</li>';
     
     $("#group_id_" + group.id.toString()).find(".list_onglet").append(elementOngletListe);
@@ -116,6 +120,7 @@ function removeTabGroup(id_tab)
 	  empty_tab.id = getNewIdTab();
 	  empty_tab.id_chrome = -1;
 	  empty_tab.url = "chrome://newtab/";
+          empty_tab.pinned = false;
 	  empty_tab.title = "Nouvel onglet";
 	  empty_tab.icone = "";
 	  empty_tab.groupe_onglet = -1;
@@ -153,6 +158,7 @@ function setGroupActif(group)
     empty_tab.id = getNewIdTab();
     empty_tab.id_chrome = -1;
     empty_tab.url = "chrome://newtab/";
+    empty_tab.pinned = false;
     empty_tab.title = "Nouvel onglet";
     empty_tab.icone = "";
     empty_tab.groupe_onglet = -1;

@@ -2,6 +2,7 @@ var classOnglet = function() {
   this.id;
   this.id_chrome;
   this.url;
+  this.pinned;
   this.title;
   this.icone;
   this.miniature;
