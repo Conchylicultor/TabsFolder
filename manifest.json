@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name" :"TabsFolder",
-  "version" :"0.8.3",
+  "version" :"0.9.0",
   "description" :"Group your tabs into groups.",
   "icons": { "16":  "icon16.png",
 	     "48":  "icon48.png",
