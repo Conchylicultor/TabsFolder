@@ -17,20 +17,23 @@ $( document ).ready(function() {
     // Recuperation des onglets ouverts
     windows.forEach(function(window){
       window.tabs.forEach(function(tab){
-	
-	// Creation de l'onglet
-	var nouvel_onglet = new classOnglet();
-	
-	nouvel_onglet.id = getNewIdTab();
-	nouvel_onglet.id_chrome = tab.id;
-	nouvel_onglet.url = tab.url;
-	nouvel_onglet.title = tab.title;
-        nouvel_onglet.pinned = tab.pinned;
-	nouvel_onglet.icone = tab.favIconUrl;
-	nouvel_onglet.groupe_onglet = -1;
+        
+        if(!tab.pinned) // Ignore pinned tabs
+        {
+          // Creation de l'onglet
+          var nouvel_onglet = new classOnglet();
+          
+          nouvel_onglet.id = getNewIdTab();
+          nouvel_onglet.id_chrome = tab.id;
+          nouvel_onglet.url = tab.url;
+          nouvel_onglet.title = tab.title;
+          nouvel_onglet.pinned = tab.pinned;
+          nouvel_onglet.icone = tab.favIconUrl;
+          nouvel_onglet.groupe_onglet = -1;
 
-	// Ajout de l'onglet (sans ouvrir l'onglet)
-	addGroupTab(groupActif, nouvel_onglet, true);
+          // Ajout de l'onglet (sans ouvrir l'onglet)
+          addGroupTab(groupActif, nouvel_onglet, true);
+        }
       });
     });
     
