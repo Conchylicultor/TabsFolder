@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    
+
   $("#create_group").click(function() {
     createGroup();
     // Sauvegarde
@@ -8,7 +8,7 @@ $( document ).ready(function() {
 
   $("#list_groups").on( "click", ".group_remove", function() {
     var group = getGroup(getGroupId($(this)));
-    
+
     if(group.id == groupActif.id)
     {
       // On defini le prochain groupe comme etant actif
@@ -26,37 +26,38 @@ $( document ).ready(function() {
 	  next_group = createGroup();
 	}
       }
-      
+
       //ferme les onglets du groupe courant et ouvrent ceux du prochain
       setGroupActif(next_group);
-      
+
       // Sauvegarde
       saveGroup();
     }
-    
+
     // Modification de l'affichage
     $("#group_id_" + group.id.toString()).remove();
-    
+
     // Suppression du groupe
     list_groups.splice(list_groups.indexOf(group), 1);
-    
+
     // Sauvegarde
     saveGroup();
   });
 
   $("#list_groups").on( "click", ".group_set_actif", function() {
     setGroupActif(getGroup(getGroupId($(this))));
-    
+
     // Sauvegarde
     saveGroup();
+    close();
   });
 
   $("#list_groups").on( "blur", ".group_name", function() {
     group = getGroup(getGroupId($(this)));
     group.name = $(this).val();
-    
+
     // Sauvegarde
     saveGroup();
-  }); 
+  });
 
 });
