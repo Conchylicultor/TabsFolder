@@ -45,11 +45,15 @@ $( document ).ready(function() {
   });
 
   $("#list_groups").on( "click", ".group_set_actif", function() {
-    setGroupActif(getGroup(getGroupId($(this))));
-
-    // Sauvegarde
-    saveGroup();
-    close();
+    setGroupActif(getGroup(getGroupId($(this))), function() {
+        // Use callback to avoid race condition where the current tab is closed before
+        // the new group being opened (could potentially close the windows or terminate
+        // the script before complete execution)
+        // Sauvegarde
+        saveGroup(function() {
+            close();
+        });
+    });
   });
 
   $("#list_groups").on( "blur", ".group_name", function() {

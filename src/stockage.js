@@ -79,22 +79,22 @@ function loadGroup()
       {
 	console.log("Premier lancement...");
       }
-      
+
       if(string_totale != "")
       {
 	var listLoadGroup = JSON.parse(string_totale);;
-	
+
 	for(var i=0 ; i < listLoadGroup.length; ++i)
 	{
 	  var newGroup = createGroup();
 	  newGroup.name = listLoadGroup[i].name;
 	  $("#group_id_" + newGroup.id.toString()).find(".group_name").val(newGroup.name);
-	  
+
 	  for(var j=0 ; j < listLoadGroup[i].list_tabs.length; ++j)
 	  {
 	    // Creation de l'onglet
 	    var nouvel_onglet = new classOnglet();
-	    
+
 	    nouvel_onglet.id = getNewIdTab();
 	    nouvel_onglet.id_chrome = -1;
 	    nouvel_onglet.url = listLoadGroup[i].list_tabs[j].url;
@@ -116,7 +116,7 @@ function loadGroup()
   });
 }
 
-function saveGroup()
+function saveGroup(callback)
 {
   //chrome.storage.sync.clear(function() {
     // Apres avoir videe l'espace de stockage
@@ -131,10 +131,10 @@ function saveGroup()
     }
     // Exportation du nom actif
     chrome.storage.sync.set({"nom_actif":groupActif.name});
-    
+
     // On decoupe la liste a sauvegarder en parties
     var hugeStorage = new HugeStorageSync();
-    hugeStorage.set('lg', JSON.stringify(listSaveGroup));
+    hugeStorage.set('lg', JSON.stringify(listSaveGroup), callback);
     //chrome.storage.sync.set({"list_groups":storageSplit});
   //});
 }
